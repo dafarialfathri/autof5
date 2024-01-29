@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AUTO F5</title>
+    <style>
+        body {
+            background-color: #af2c4d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        .kotak {
+            position: fixed;
+            background-color: #ffffff;
+            width: 400px;
+            height: 450px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .isi-kotak {
+            justify-content: flex-start;
+            align-items: center;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        
+        h1 {
+            font-size: 17px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #000000;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        
+        .reload {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            animation: putar 1.5s ease forwards;
+        }
+        
+        @keyframes putar {
+            0% {
+                transform: rotateZ(0);
+            }
+            50% {
+                transform: rotateZ(360deg);
+            }
+            100% {
+                transform: rotateZ(720deg);
+            }
+        }
+        
+        .ceklis {
+            width: 100px;
+            height: 100px;
+            display: none;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .icon {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        label {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kotak">
+        <div class="isi-kotak">
+            <h1>DATA MASUK</h1>
+            <div class="icon">
+                <img class="reload" src="reload.png" id="reload">
+                <img class="ceklis" src="ceklis.png" id="ceklis">
+            </div>
+            <label id="l1">success receiving data</label>
+        </div>
+    </div>
+    <script>
+        setInterval(function() {
+            location.reload();
+        }, 5000);
+
+        var re = document.getElementById("reload");
+        var ce = document.getElementById("ceklis");
+        var l1 = document.getElementById("l1");
+        setTimeout(function() {
+            re.style.display = "none";
+        }, 2000);
+        setTimeout(function() {
+            ce.style.display = "flex";
+            l1.style.display = "flex";
+        }, 2000);
+    </script>
+</body>
+
+</html>
